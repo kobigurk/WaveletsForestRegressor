@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module random_forest</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>random_forest</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/kobigurk/thesis/code/wf/random_forest.py">/home/kobigurk/thesis/code/wf/random_forest.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="code.html">code</a><br>
+<a href="sklearn.ensemble.html">sklearn.ensemble</a><br>
+</td><td width="25%" valign=top><a href="sklearn.linear_model.html">sklearn.linear_model</a><br>
+<a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="operator.html">operator</a><br>
+</td><td width="25%" valign=top><a href="sklearn.tree.html">sklearn.tree</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="random_forest.html#WaveletsForestRegressor">WaveletsForestRegressor</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WaveletsForestRegressor">class <strong>WaveletsForestRegressor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="WaveletsForestRegressor-__init__"><strong>__init__</strong></a>(self, regressor='random_forest', criterion='mse', bagging=0.8, depth=9, trees=5, features='auto', seed=None)</dt><dd><tt>Construct&nbsp;a&nbsp;new&nbsp;'<a href="#WaveletsForestRegressor">WaveletsForestRegressor</a>'&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+:regressor:&nbsp;Regressor&nbsp;type.&nbsp;Either&nbsp;"rf"&nbsp;or&nbsp;"decision_tree_with_bagging".&nbsp;Default&nbsp;is&nbsp;"rf".<br>
+:criterion:&nbsp;Splitting&nbsp;criterion.&nbsp;Same&nbsp;options&nbsp;as&nbsp;sklearn's&nbsp;DecisionTreeRegressor.&nbsp;Default&nbsp;is&nbsp;"mse".<br>
+:bagging:&nbsp;Bagging.&nbsp;Only&nbsp;available&nbsp;when&nbsp;using&nbsp;the&nbsp;"decision_tree_with_bagging"&nbsp;regressor.&nbsp;Default&nbsp;is&nbsp;0.8.<br>
+:depth:&nbsp;Maximum&nbsp;depth&nbsp;of&nbsp;each&nbsp;tree.&nbsp;Default&nbsp;is&nbsp;9.<br>
+:trees:&nbsp;Number&nbsp;of&nbsp;trees&nbsp;in&nbsp;the&nbsp;forest.&nbsp;Default&nbsp;is&nbsp;5.<br>
+:features:&nbsp;Features&nbsp;to&nbsp;consider&nbsp;in&nbsp;each&nbsp;split.&nbsp;Same&nbsp;options&nbsp;as&nbsp;sklearn's&nbsp;DecisionTreeRegressor.<br>
+:seed:&nbsp;Seed&nbsp;for&nbsp;random&nbsp;operations.&nbsp;Default&nbsp;is&nbsp;2000.</tt></dd></dl>
+
+<dl><dt><a name="WaveletsForestRegressor-accuracy"><strong>accuracy</strong></a>(self, y_pred, y)</dt><dd><tt>Evaluates&nbsp;accuracy&nbsp;given&nbsp;predictions&nbsp;and&nbsp;actual&nbsp;labels.&nbsp;<br>
+&nbsp;<br>
+:y_pred:&nbsp;Predictions&nbsp;as&nbsp;vertices&nbsp;on&nbsp;the&nbsp;simplex&nbsp;(preprocessed&nbsp;by&nbsp;'pred_to_one_hot').<br>
+:y:&nbsp;Actual&nbsp;labels.<br>
+:return:&nbsp;Accuracy.</tt></dd></dl>
+
+<dl><dt><a name="WaveletsForestRegressor-evaluate_smoothness"><strong>evaluate_smoothness</strong></a>(self, m=1000)</dt><dd><tt>Evaluates&nbsp;smoothness&nbsp;for&nbsp;a&nbsp;maximum&nbsp;of&nbsp;M-terms<br>
+&nbsp;<br>
+:m:&nbsp;Maximum&nbsp;terms&nbsp;to&nbsp;use.&nbsp;Default&nbsp;is&nbsp;1000.<br>
+:return:&nbsp;Smothness&nbsp;index,&nbsp;n_wavelets,&nbsp;errors.</tt></dd></dl>
+
+<dl><dt><a name="WaveletsForestRegressor-fit"><strong>fit</strong></a>(self, X_raw, y)</dt><dd><tt>Fit&nbsp;non-normalized&nbsp;data&nbsp;to&nbsp;simplex&nbsp;labels.<br>
+&nbsp;<br>
+:X_raw:&nbsp;Non-normalized&nbsp;features,&nbsp;given&nbsp;as&nbsp;a&nbsp;2D&nbsp;array&nbsp;with&nbsp;each&nbsp;row&nbsp;representing&nbsp;a&nbsp;sample.<br>
+:y:&nbsp;Labels,&nbsp;each&nbsp;row&nbsp;is&nbsp;given&nbsp;as&nbsp;a&nbsp;vertex&nbsp;on&nbsp;the&nbsp;simplex.</tt></dd></dl>
+
+<dl><dt><a name="WaveletsForestRegressor-pred_to_one_hot"><strong>pred_to_one_hot</strong></a>(self, y_pred)</dt><dd><tt>Converts&nbsp;regression&nbsp;predictions&nbsp;to&nbsp;their&nbsp;closest&nbsp;vertices&nbsp;on&nbsp;the&nbsp;simplex</tt></dd></dl>
+
+<dl><dt><a name="WaveletsForestRegressor-predict"><strong>predict</strong></a>(self, X, m=1000, start_m=0, paths=None)</dt><dd><tt>Predict&nbsp;using&nbsp;a&nbsp;maximum&nbsp;of&nbsp;M-terms<br>
+&nbsp;<br>
+:X:&nbsp;Data&nbsp;samples.<br>
+:m:&nbsp;Maximum&nbsp;of&nbsp;M-terms.<br>
+:start_m:&nbsp;The&nbsp;index&nbsp;of&nbsp;the&nbsp;starting&nbsp;term.&nbsp;Can&nbsp;be&nbsp;used&nbsp;to&nbsp;evaluate&nbsp;predictions&nbsp;incrementally&nbsp;over&nbsp;terms.<br>
+:paths:&nbsp;Instead&nbsp;of&nbsp;computing&nbsp;decision&nbsp;paths&nbsp;for&nbsp;each&nbsp;sample,&nbsp;the&nbsp;method&nbsp;can&nbsp;receive&nbsp;the&nbsp;indicator&nbsp;matrix.&nbsp;Can&nbsp;be&nbsp;used&nbsp;to&nbsp;evaluate&nbsp;predictions&nbsp;incrementally&nbsp;over&nbsp;terms.<br>
+:return:&nbsp;Predictions.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-reduce"><strong>reduce</strong></a>(...)</dt><dd><tt><a href="#-reduce">reduce</a>(function,&nbsp;sequence[,&nbsp;initial])&nbsp;-&gt;&nbsp;value<br>
+&nbsp;<br>
+Apply&nbsp;a&nbsp;function&nbsp;of&nbsp;two&nbsp;arguments&nbsp;cumulatively&nbsp;to&nbsp;the&nbsp;items&nbsp;of&nbsp;a&nbsp;sequence,<br>
+from&nbsp;left&nbsp;to&nbsp;right,&nbsp;so&nbsp;as&nbsp;to&nbsp;reduce&nbsp;the&nbsp;sequence&nbsp;to&nbsp;a&nbsp;single&nbsp;value.<br>
+For&nbsp;example,&nbsp;<a href="#-reduce">reduce</a>(lambda&nbsp;x,&nbsp;y:&nbsp;x+y,&nbsp;[1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5])&nbsp;calculates<br>
+((((1+2)+3)+4)+5).&nbsp;&nbsp;If&nbsp;initial&nbsp;is&nbsp;present,&nbsp;it&nbsp;is&nbsp;placed&nbsp;before&nbsp;the&nbsp;items<br>
+of&nbsp;the&nbsp;sequence&nbsp;in&nbsp;the&nbsp;calculation,&nbsp;and&nbsp;serves&nbsp;as&nbsp;a&nbsp;default&nbsp;when&nbsp;the<br>
+sequence&nbsp;is&nbsp;empty.</tt></dd></dl>
+</td></tr></table>
+</body></html>
